@@ -1,0 +1,27 @@
+BIBLIOTECA MAESTRÍA INNOVACIÓN EDUCATIVA - CATÁLOGO DINÁMICO DE APLICATIVOS
+
+1. Crea una hoja de cálculo nueva en Google Sheets, por ejemplo «Administrador de aplicativos UNIR».
+2. En esa hoja: Extensiones > Apps Script. Pega TODO el archivo Apps_Administrador.gs y guarda.
+3. En Apps Script, selecciona prepararPlantilla y pulsa Ejecutar. Autoriza los permisos. Se crea la hoja Aplicativos con dos ejemplos.
+4. Implementar > Nueva implementación > Aplicación web. Ejecutar como: Yo. Acceso: Cualquier usuario (solo lectura del catálogo público). Copia la URL que termina en /exec.
+5. Abre config.js de la PWA y pega esa URL ENTRE las comillas de window.BIBLIOTECA_APPS_API_URL. Ejemplo:
+   window.BIBLIOTECA_APPS_API_URL = 'https://script.google.com/macros/s/XXXX/exec';
+6. Sube la carpeta web de la biblioteca a Netlify (o el ZIP de esta entrega, después de completar el paso 5). Si subes un ZIP directamente a Netlify, edita config.js antes de comprimirlo.
+7. Desde ahora añade, edita, ordena u oculta aplicativos en Sheets, sin cambiar la PWA ni volver a publicar Netlify.
+
+CAMPOS:
+Categoria = nombre del estante (puedes crear tantos como quieras)
+Nombre = nombre del aplicativo
+URL = dirección https://... del aplicativo Netlify
+Imagen = enlace DIRECTO y público de imagen (opcional, si se omite muestra icono)
+Descripcion = texto breve opcional
+Orden = número para organizar aplicativos dentro del estante
+Visible = SI o NO (NO oculta sin borrar)
+
+IMPORTANTE:
+- El Apps Script anterior que lee Drive y los libros NO SE MODIFICA.
+- El catálogo de aplicativos se lee al abrir o recargar la PWA.
+- Al configurar el nuevo Apps Script, los dos aplicativos iniciales pasan a administrarse desde Sheets.
+- Solo se publican los datos de la hoja Aplicativos: NO pongas datos privados allí.
+- Si la URL del Apps Script cambia por un nuevo despliegue, tendrás que actualizar config.js una vez.
+- Para portadas usa URL directa de imagen con permisos públicos, no URL de página web.
